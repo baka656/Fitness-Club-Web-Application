@@ -1,0 +1,57 @@
+<div class="container">
+    <h3 align="center" style="font-size: 25px;font-weight: bold;">{{classes.title}}</h3>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-sm-12 col-md-10 col-lg-10"> 
+                <h5>Workout Summary</h5>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr *ngIf="classes['maingoal']">
+                                <td>Main Goal</td>
+                                <td>{{classes['maingoal']}}</td>
+                            </tr>
+                            <tr *ngIf="classes['workouttype']">
+                                <td>Workout Type</td>
+                                <td>{{classes['workouttype']}}</td>
+                            </tr>
+                            <tr *ngIf="classes['coursetype']">
+                                <td>Course Type</td>
+                                <td>{{classes['coursetype']}}</td>
+                            </tr>
+                            <tr *ngIf="classes['traininglevel']">
+                             <td>Training Level</td>
+                             <td>{{classes['traininglevel']}}</td>
+                             </tr>
+                             <tr *ngIf="classes['programduration']">
+                                <td>Program Duration</td>
+                                <td>{{classes['programduration']}}</td>
+                              </tr>
+                              <tr *ngIf="classes['daysperweek']">
+                                 <td>Days Per Week</td>
+                                 <td>{{classes['daysperweek']}}</td>
+                             </tr>
+                             <tr *ngIf="classes['timeperworkout']">
+                                 <td>Time Per Workout</td>
+                                 <td>{{classes['timeperworkout']}}</td>
+                             </tr>
+                             <tr *ngIf="classes['equipmentrequired']">
+                                 <td>Equipments Required</td>
+                                 <td>{{classes['equipmentrequired']}}</td>
+                             </tr>
+                             <tr *ngIf="classes['targetgender']">
+                                 <td>Target Gender</td>
+                                 <td>{{classes['targetgender']}}</td>
+                             </tr>    
+                        </tbody>
+                </table>
+                <div>
+                    <button mat-button class="btn btn-secondary" (click)="closeDialog()">Cancel</button>&nbsp;&nbsp;&nbsp;
+                    <button mat-button class="btn btn-primary" (click)="enroll()" cdkFocusInitial *ngIf="!x">Enroll now</button>
+                    <button mat-button class="btn btn-success" (click)="view()" cdkFocusInitial *ngIf="x">Workout Plan</button>
+                </div>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+        </div>
+    </div>
+</div>

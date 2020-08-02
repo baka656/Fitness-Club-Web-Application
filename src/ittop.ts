@@ -1,0 +1,22 @@
+export interface Ittop{
+    username?:string;
+    fname?:string;
+    lname?:string;
+    password?:string;
+    email?:string;
+    joindate?:Date;
+    dob?:Date;
+    gender?:string;
+    weight?:number;
+    height?:number;
+    contact?:number;
+    efreq?:string;
+    address?:string;
+    city?:string;
+    state?:string;
+    country?:string;
+    pincode?:number;
+    img?:string;
+    about?:string;
+    courses?:string[];
+}
