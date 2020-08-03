@@ -1,0 +1,92 @@
+<div class="container-fluid" style="margin-top: 100px;">    
+    <div class="row">
+        <div class="col-0 col-sm-1 col-md-2"></div>
+        <div class="col-12 col-sm-7 col-md-5">
+            <div class="card">
+                <h2 class="card-header black-text text-center py-4  winter-neva-gradient">
+                    <strong>Sign up</strong>
+                </h2><br>
+                <div class="card-body px-lg-5 pt-0">
+                    <form [formGroup]="registerForm"  style="color: #757575;" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- First name -->
+                                <div class="md-form">
+                                    <mdb-icon fas icon="angle-right" class="prefix"></mdb-icon>
+                                    <input type="text" class="form-control" placeholder="First name" formControlName="fname" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" >
+                                </div>
+                                <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.fname.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <!-- Last name -->
+                                <div class="md-form"  >
+                                    <mdb-icon fas icon="angle-right" class="prefix"></mdb-icon>
+                                    <input type="email"  placeholder="Last name" class="form-control" formControlName="lname" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }">
+                                </div>
+                                <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lname.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+                            <input type="email" placeholder="E-mail" formControlName="email"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email Id is required</div>
+                                <div *ngIf="f.email.errors.pattern">Please provide a valid email-id</div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+                            <input type="email" placeholder="Username" formControlName="username"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Username is required</div>
+                            </div>
+                        </div>
+                    <div class="md-form mt-0">
+                            <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+                            <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"  >
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+                            <input type="password" placeholder="Confirm Password" formControlName="cpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }"  >
+                            <div *ngIf="submitted && f.cpassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.cpassword.errors.required">Password is required</div>
+                                <div *ngIf="f.cpassword.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="md-form" align=center>
+                            <button [disabled]="loading" class="btn blue-gradient waves-effect waves-dark" mdbBtn>
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Join
+                            </button>
+                        </div>
+                    </form>
+                    <p style="font-size: 15px; color: grey;" align=center>Already a member? <a routerLink="/login">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-0 col-sm-4 col-md-4" style="margin-top:5%">
+            <div class="card keybenifits" style="width:310px; height:450px; color:black; line-height: 2.5rem; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">
+                <div class="card-body">
+                    <br>
+                    <h2 class="card-title" style="font-weight: bold;">Key Benefits:</h2>
+                    <p class="card-text" style="font-size: medium;color: grey;"><i style="color: green;" class="fa fa-check-circle"></i> &nbsp;&nbsp;Inspiring workout videos</p>
+                    <p class="card-text" style="font-size: medium;color: grey;"><i style="color: green;" class="fa fa-check-circle"></i> &nbsp;&nbsp; 24/7 community support</p>
+                    <p class="card-text" style="font-size: medium;color: grey;"><i style="color: green;" class="fa fa-check-circle"></i>&nbsp;&nbsp; Useful services</p>
+                    <p class="card-text" style="font-size: medium;color: grey;"><i style="color: green;" class="fa fa-check-circle"></i> &nbsp;&nbsp;Helpful health, nutrition and fitness information</p>
+                    <p class="card-text" style="font-size: medium;color: grey;"><i style="color: green;" class="fa fa-check-circle"></i> &nbsp;&nbsp;and much, much more…</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-0 col-sm-0 col-md-1"></div>
+    </div>
+</div>
+        
+    

@@ -1,0 +1,36 @@
+<div class="container-fluid" style="margin-top: 150px;">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-4"> 
+            <form [formGroup]="registerForm" class="form-container" style="color: #757575;" (ngSubmit)="onSubmit()">
+                <h2 class="black-text text-center winter-neva-gradient">
+                    <strong>Log In</strong>
+                </h2><br>
+                <div class="md-form">
+                    <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+                    <input type="email" placeholder="Username" formControlName="username"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="md-form">
+                    <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+                    <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                    <a routerLink="/forgotpass" style="font-size: 12px;margin-left: 15px;float: right;">Forgot Password?</a>
+                </div>
+                <div class="md-form" align=center>
+                    <button [disabled]="loading" class="btn blue-gradient waves-effect waves-dark" mdbBtn>
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Log In
+                    </button>
+                </div>
+                <div class="form-footer">
+                    <p style="font-size: 15px; color: grey;" align=center>Not a member yet? <a routerLink="/join">Join now!</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

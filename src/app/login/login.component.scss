@@ -1,0 +1,14 @@
+
+.form-container{
+    padding:30px;
+    background-color: whitesmoke;
+}
+@media screen and  (max-width: 580px) {
+    .keybenifits{
+        display: none;
+        padding: 0px;
+    }
+}
+.md-form{
+    margin-top: 2%;
+}
