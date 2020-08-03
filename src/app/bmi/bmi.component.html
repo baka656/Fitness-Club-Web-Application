@@ -1,0 +1,123 @@
+<br><br><br><br><br><br>
+<div class="row" style="margin-top: 120px;">
+    
+
+  <div class="col-sm-2"></div>
+  <!-- Card -->
+  <!-- Card -->
+<div class="card col-sm-5 text-center  winter-neva-gradient" style="padding: 0px 20px;">
+
+    <!-- Card image -->
+    <div class="view overlay mask rgba-black-strong waves-effect waves-dark">
+      <img class="card-img-top" src="../../assets/bmi.jpeg"  alt="Card image cap" height=250px>
+      <a href="#!">
+        <div class=""></div>
+      </a>
+    </div>
+  
+    <!-- Card content -->
+    <div class="card-body ">
+  
+      <!-- Title -->
+      <h4 class="card-title" style="text-align: center;">Calculate Your Body Mass Index (BMI)</h4>
+      <!-- Text -->
+      <p class="card-text">This BMI calculator measures your body fat by using your weight and height. Your BMI can indicate if you are underweight, normal, overweight or obese, and it can also suggest your risk of chronal diseaese</p>
+      <!-- Button -->
+      <form [formGroup]="bmiForm" (ngSubmit)="onSubmit()" style="margin-left: 6%; margin-right: 6%;">
+        
+            <div class="md-form mt-0 row">
+                <div class="col-sm-6">
+                <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                    <option value="GENDER" hidden>GENDER</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                      <label for=x></label>
+        
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors.required">Please enter valid gender</div>
+                </div>
+                </div>
+                <div class=" col-sm-6">
+                    <input type="number" class="form-control" formControlName="age" placeholder="AGE" [ngClass]="{ 'is-invalid': submitted && f.age.errors }">
+                    <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                        <div *ngIf="f.age.errors.required">Please enter valid age</div>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="md-form mt-0 row">
+            <div class="col-sm-9">
+            <input type="number" class="form-control"  formControlName="height" placeholder="HEIGHT" [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
+            </div>
+            <div class="col-sm-3">
+            <select formControlName="htype" class="form-control" >
+                <option value="cm">cm</option>
+                <option value="in">in</option>
+            </select>
+        </div>
+            <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                <div *ngIf="f.height.errors.required">Please enter valid height</div>
+            </div>
+        </div>
+        <div class="md-form row">
+            <div class="col-sm-9">
+            <input type="number" class="form-control" formControlName="weight" placeholder="WEIGHT" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }">
+            </div>
+            <div class="col-sm-3">
+            <select formControlName="wtype" class="form-control" >
+                <option value="kg">kg</option>
+                <option value="lb">lb</option>
+            </select>
+            </div>
+            <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                <div *ngIf="f.weight.errors.required">Please enter valid weight</div>
+            </div>
+        </div>
+        <div class="md-form" align=center>
+            <button class="btn blue-gradient waves-effect waves-dark" mdbBtn>Get Your BMI</button>
+        </div>
+    </form>
+    
+    </div>
+    
+  </div>
+  <!-- Card -->
+  
+
+  
+  <div class="col-sm-1"></div>
+  <!-- Card -->
+  <div class="col-sm-4"  style="padding:5%;">
+    <div *ngIf="isbmi" class=" winter-neva-gradient" style="padding:10%;">
+        <h4>Your BMI: {{bmi | number:'1.2-2'}}</h4>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                  <th scope="col" style="font-size: 12px;">CLASSIFICATION</th>
+                  <th scope="col" style="font-size: 12px;">BODY MASS INDEX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr [ngClass]="{'table-primary': type==1}">
+                  <th scope="row">Underweight</th>
+                  <td>lt 19.1</td>
+                </tr>
+                <tr [ngClass]="{'table-primary': type==2}">
+                  <th scope="row">Normal</th>
+                  <td>19.1-27.09</td>
+                </tr>
+                <tr [ngClass]="{'table-primary': type==3}">
+                  <th scope="row">Overweight</th>
+                  <td>27.1-30.59</td>
+                </tr>
+                <tr [ngClass]="{'table-primary': type==4}">
+                  <th scope="row">Obese</th>
+                  <td>gt 30.6</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+  </div>
+</div>
