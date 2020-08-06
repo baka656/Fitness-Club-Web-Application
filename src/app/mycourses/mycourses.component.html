@@ -1,0 +1,29 @@
+<br><br><br><br>
+
+<div *ngIf="loading" style="margin-top:10%; " align=center>
+    <span  class="spinner-border spinner-border-sm mr-1" style="margin-right:5%; height: 70px; width: 70px;"></span>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let i of classes">
+            <!-- Card -->
+            <a (click)="view(i)">
+                <div class="flip-container waves-effect waves-dark">
+                    <div class="view overlay">
+                        <img class="card-img-top" [src]="i.img" alt="Card image cap">
+                            <div class="mask rgba-white-slight"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{i.title}}</h4>
+                        <h5>{{i.subtitle}}</h5>
+                        <p class="card-text">{{i.shortdescription}}</p>
+                        <button class="btn btn-primary" (click)="view(i)">View deatils</button>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+           
+ 
+          
