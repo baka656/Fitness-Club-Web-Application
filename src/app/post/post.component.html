@@ -1,0 +1,58 @@
+<div class="container">
+    <h1 align="center" style="font-size: 25px;font-weight: bold;">Hello {{blog.username}}, let us know your thoughts....</h1>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-sm-12 col-md-10 col-lg-10">  
+                <form [formGroup]="data" class="form-full" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="title" required >
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Sub-title</mat-label>
+                        <input matInput formControlName="subtitle">
+                    </mat-form-field><br>
+                    <h2>Want to upload a pic?...</h2>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <input type="file" (input)="selectPic($event.target.files[0])">
+                            <span style="color: red;font-size: 12px;">*image size should be less than 10MB</span>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <img [src]="imageUrl" alt="" style="max-width: 70%;max-height: 70%;display: block;margin-left: auto;margin-right: auto;">
+                        </div>
+                    </div><br>
+                        <label><b>Content</b></label>
+                        <editor
+                            formControlName="story"
+                            apiKey="zrvwmhzuu3l5a21bvs4ys27oh75k0vakntkkntmq74wzmjyi"
+                            [init]="{
+                            height: 250,
+                            width: 550,
+                            menubar: false,
+                            plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                            ],
+                            toolbar:
+                            'undo redo | formatselect | bold italic backcolor | \
+                            alignleft aligncenter alignright alignjustify | \
+                            bullist numlist outdent indent | removeformat | help'
+                            }"
+                            required
+                        ></editor><br><br>
+                    
+                    <div mat-dialog-actions>
+                      <button mat-button (click)="closeDialog()">Cancel</button>
+                      <button [disabled]="loading" mat-button type="submit" cdkFocusInitial>
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" style="margin-right:5%"></span>  
+                        Publish</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+        </div>
+    </div>
+</div>
