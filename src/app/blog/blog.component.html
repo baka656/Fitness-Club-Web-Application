@@ -1,0 +1,43 @@
+<br><br> <br>
+<div class="row post">
+    <div class="col-sm-7 " > 
+           <h2 style="float:right; font-family: 'Dancing Script', cursive; "> Have thoughts on fitness? Want to post your story?  </h2>
+    </div>
+    <div class="col-sm-5" >
+            <button mdbBtn class="btn blue-gradient waves-effect waves-dark" (click)="postBlog()" style="margin-top:-2%;"> POST YOUR STORY </button>
+    </div>
+</div>
+<div *ngIf="loading" style="margin-top:10%; " align=center>
+<span  class="spinner-border spinner-border-sm mr-1" style="margin-right:5%; height: 70px; width: 70px;"></span>
+</div>
+<div class="row">
+    <div class="col-sm-4" *ngFor="let i of range">
+        
+        <!-- Card --><a (click)="show(i)">
+        <div class="card  waves-effect waves-dark">
+
+            <!-- Card image -->
+            <div class="view overlay">
+            <img class="card-img-top" [src]="i.img" alt="Card image cap" height=300px>
+            <a>
+                <div class="mask rgba-white-slight"></div>
+            </a>
+            </div>
+        
+            <!-- Card content -->
+            <div class="card-body">
+        
+            <!-- Title -->
+            <h3 class="card-title">{{i.title}} &nbsp; &nbsp; &nbsp; &nbsp;  |&nbsp; &nbsp; &nbsp; &nbsp;  {{i.subtitle}}</h3>
+            
+            <!-- Text -->
+            
+            <!-- Button -->
+            <span style="float:right" >        --by {{i.username}} </span>   <br>
+            <span style="float:left" style="font-size:10px; color:red">--uploaded on {{i.date}} </span>        
+        </div>  
+  </div> </a>
+  <!-- Card -->
+  <mat-divider [vertical]="true"></mat-divider>
+    </div>
+</div>
