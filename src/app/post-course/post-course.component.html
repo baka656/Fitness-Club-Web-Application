@@ -1,0 +1,81 @@
+<div class="container">
+    <h1 align="center" style="font-size: 25px;font-weight: bold;">Add course</h1>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-sm-12 col-md-10 col-lg-10">  
+                <form [formGroup]="data" class="form-full" (ngSubmit)="onSubmit()">
+                    <h4>Upload sample course image</h4>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <input type="file" (input)="selectPic($event.target.files[0])">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <img [src]="imageUrl" alt="" style="max-width: 70%;max-height: 70%;display: block;margin-left: auto;margin-right: auto;">
+                        </div>
+                    </div><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="title" required >
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Short description</mat-label>
+                        <input matInput formControlName="shortdescription">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Main Goal</mat-label>
+                        <input matInput formControlName="maingoal" required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Workout Type</mat-label>
+                        <input matInput formControlName="workouttype" required>
+                    </mat-form-field><br>
+                    
+                       <mat-label id="x">course type</mat-label>
+                       <mat-radio-group formControlName="coursetype"  required>
+                        <mat-radio-button value="online">Online</mat-radio-button>
+                        <mat-radio-button value="offline">Offline</mat-radio-button>
+                       </mat-radio-group>
+                       <br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Training Level</mat-label>
+                          <mat-select multiple required formControlName="traininglevel" matNativeControl>
+                              <mat-option value="Beginner">Beginner</mat-option>
+                              <mat-option value="Intermediatory">Intermediatory</mat-option>
+                              <mat-option value="Expert">Experts</mat-option>
+                            </mat-select>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Program Duration</mat-label>
+                        <input matInput formControlName="programduration" required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Days per Week</mat-label>
+                        <input matInput formControlName="daysperweek" required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Time per Workout(in minutes)</mat-label>
+                        <input matInput formControlName="timeperworkout" required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Equipments Required</mat-label>
+                        <input matInput formControlName="equipmentsrequired" required>
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>Target Gender</mat-label>
+                        <input matInput formControlName="targetgender" >
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="full"  required>
+                        <mat-label>Workout Plan</mat-label>
+                        <textarea matInput formControlName="workoutinfo" ></textarea>
+                    </mat-form-field><br>
+                    <div mat-dialog-actions>
+                        <!--<button mat-button (click)="closeDialog()">Cancel</button>-->
+                        <button mat-button type="submit" cdkFocusInitial>Ok</button>
+                      </div>
+                </form>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+        </div>
+    </div>
+</div>
