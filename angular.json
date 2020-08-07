@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "fitnessClub"
+  "defaultProject": "fitnessClub",
+  "cli": {
+    "analytics": false
+  }
 }

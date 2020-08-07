@@ -11,8 +11,8 @@ export class JoinService {
   LoggedInUser:string;
   data:any;
   data1:any;
-  //link:string="http://localhost:8080";
-  link:string="";
+  link:string="http://localhost:8080";
+  //link:string="";
   constructor(private http:HttpClient) { }
 
   mycourses(obj){
