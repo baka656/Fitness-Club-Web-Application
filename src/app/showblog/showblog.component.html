@@ -1,0 +1,27 @@
+<br><br>
+<div *ngIf="loading" style="margin-top:20%; " align=center>
+    <span  class="spinner-border spinner-border-sm mr-1" style="margin-right:5%; height: 70px; width: 70px;"></span>
+    </div>
+<div class="row" >
+
+    <div class="col-sm-1"></div>
+    <div class="col-sm-7 border" style="padding:3%; margin-top:3%;">
+         
+        <img [src]="blog.img" style="height:450px; width:100%;"><br><br>
+        <h1 style="text-align:center; font-family: 'DM Mono', monospace; font-weight: 500;">{{blog.title}}</h1>  <br>
+        <h2 style="font-family: 'DM Mono', monospace;"><p [innerHTML]="blog.story"></p> </h2>
+        <span style="font-family: 'DM Mono', monospace; font-size:medium; color:rgb(54, 145, 180); float:right"> {{"--by "+blog.username}} </span>
+    </div>
+
+    <div class="col-sm-3" style="padding:3%; margin-top:3%; margin-left: 50px;">
+            <h1 style="text-align:center; font-family: 'Open Sans Condensed', sans-serif; color:rgb(22, 165, 209); font-weight: 300;"> Other &nbsp; stories &nbsp; you &nbsp; may &nbsp; like  </h1>
+            <div class="row" *ngFor="let k of blogs.slice(0,4)" style="margin-top:15%; text-decoration: underline;">
+                <img [src]="k.img" style="height:200px; width:100%;">
+                                
+                <a (click)="goto(k)" style="margin-top:2%; color:rgb(19, 179, 233);">
+                       {{k.title}} &nbsp; &nbsp;--- &nbsp; &nbsp;
+                  <p [innerHTML]="k.story.slice(0,30)"></p>
+                </a>
+            </div>
+    </div>
+</div>
