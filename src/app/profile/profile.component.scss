@@ -1,0 +1,87 @@
+.container{
+  border-radius: 25px;
+  border: 1px solid black;
+  margin-top: 100px;
+  
+ }
+   input[type="file"] { display: none; }
+    .avast1{
+     border-radius: 10px;
+     border: 1px solid rgba(92, 90, 90, 0.041);
+     }
+  .photo1 {
+    color: #fff;
+    background-color: #151060;
+    border-color: #151060;
+    border: 1px solid transparent;
+    font-size: small;
+   padding: .375rem .75rem;
+    border-radius: .325rem;
+    cursor: pointer;
+}
+.file1
+{
+    width: 100%;
+}
+
+input,textarea,optgroup, select,button{
+    font-family: monospace;
+}
+.img-thumbnail{
+    width:250px;
+    height: 250px;
+}
+.pull-left
+{
+    margin: 20px 0 35px 40px;
+    font-family: sans-serif;
+}
+.col-md-6 
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.card 
+{
+    padding: 0 10px 0 10px;
+}
+.form-control1
+{
+    width: 300px;
+
+}
+
+@media(max-width: 1200px)
+{
+    .form-control1
+    {
+        width: 250px;
+  
+    } 
+}
+@media(max-width: 992px)
+{
+    .form-control1
+    {
+       width: 200px;
+  
+   } 
+}
+@media(max-width: 767px)
+{
+    .form-control1
+    {
+        width: 120px;
+  
+    } 
+}
+@media(max-width: 575px)
+{
+   .form-control1
+    {
+        width: 100%;
+    
+    } 
+}
+
+        

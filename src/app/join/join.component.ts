@@ -59,43 +59,53 @@ export class JoinComponent implements OnInit {
       if (this.registerForm.invalid) {
           return;
       }
-    this.loading=true;
-    this.obj.username=this.registerForm.value.username;
-    this.obj.password=this.registerForm.value.password;
-    this.obj.lname=this.registerForm.value.lname;
-    this.obj.fname=this.registerForm.value.fname;
-    this.obj.email=this.registerForm.value.email;
-    this.obj.gender='';
-    this.obj.weight=0;
-    this.obj.height=0;
-    this.obj.joindate=new Date();
-    this.obj.contact=0;
-    this.obj.efreq='';
-    this.obj.address='';
-    this.obj.city='';
-    this.obj.state='';
-    this.obj.country='';
-    this.obj.pincode=0;
-    this.obj.img='http://ssl.gstatic.com/accounts/ui/avatar_2x.png';
-    this.obj.about='';
-    this.obj.courses=[];
-    
-    this.js.joinuser(this.obj).subscribe((res)=>{
-      if(res["message"]=="user exists")
-      {
-        var dd=this.snackBar.open('An user already exists with that username!','',{
-          duration: 3000
+    this.js.validEmail({email:this.registerForm.value.email}).subscribe(data=>{
+      console.log(data);
+      if(data==true){
+        this.loading=true;
+        this.obj.username=this.registerForm.value.username;
+        this.obj.password=this.registerForm.value.password;
+        this.obj.lname=this.registerForm.value.lname;
+        this.obj.fname=this.registerForm.value.fname;
+        this.obj.email=this.registerForm.value.email;
+        this.obj.gender='';
+        this.obj.weight=0;
+        this.obj.height=0;
+        this.obj.joindate=new Date();
+        this.obj.contact=0;
+        this.obj.efreq='';
+        this.obj.address='';
+        this.obj.city='';
+        this.obj.state='';
+        this.obj.country='';
+        this.obj.pincode=0;
+        this.obj.img='http://ssl.gstatic.com/accounts/ui/avatar_2x.png';
+        this.obj.about='';
+        this.obj.courses=[];
+        
+        this.js.joinuser(this.obj).subscribe((res)=>{
+          if(res["message"]=="user exists")
+          {
+            var dd=this.snackBar.open('An user already exists with that username!','',{
+              duration: 3000
+            });
+          }
+          if(res["message"]=="user created")
+          {
+            this.loading=false;
+            var dd=this.snackBar.open('Successfully Registered^_^! Please check your inbox!','',{
+              duration: 3000
+            }); 
+            this.router.navigate(['/login'])
+          }
+          
         });
-      }
-      if(res["message"]=="user created")
-      {
-        this.loading=false;
-        var dd=this.snackBar.open('Successfully Registered^_^! Please check your inbox!','',{
-          duration: 3000
-        }); 
-        this.router.navigate(['/login'])
+        }
+      else{
+        alert("enter valid email");
       }
     });
+    
     
   }
   

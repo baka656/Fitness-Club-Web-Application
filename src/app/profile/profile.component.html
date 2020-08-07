@@ -1,0 +1,241 @@
+<div class="container bootstrap snippet">
+    <div class="row">
+      <div class="col-sm-10"><h1 class="pull-left">{{data.fname}}&nbsp;{{data.lname}}</h1><br><br><br></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+          <form [formGroup]="aboutForm" (ngSubmit)="aboutSubmit()">
+            <div class="text-center">
+                <img [src]="imageUrl" class="avatar img-circle img-thumbnail avast1" alt="avatar">
+                <h4>Upload a different photo...</h4>
+                <label for="myFile" class="photo1"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Choose your Photo</label>
+                <input type="file" class="text-center center-block file-upload file1" name="myFile" id="myFile" (input)="profileImage($event.target.files[0])">
+            </div><br><br>
+              <div class="text-center">
+                  <h4>Member Since:</h4>
+                  <p>{{data.joindate | date: 'dd MMM, yyyy'}}</p>   
+              </div><br><br>
+              <div class="col-md-6 col-lg-4">
+                  <label class="control-label">About</label>
+                  <textarea class="form-control form-control-lg form-control1" rows="5" cols="50" formControlName="about" [value]="data.about" placeholder="Tell us Something about You!!"></textarea><br>
+                  <button class="btn btn-md btn-secondary" type="submit"> Save</button>
+              </div><br>
+          </form>
+      </div><!--/col-3-->
+      <div class="col-sm-8">
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <form class="form" [formGroup]="mainForm" (ngSubmit)="mainSubmit()">
+              <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                            <!-- Basic information -->
+                                    <div class="card no-border bg-transparent">
+                                        <div class="card-title px-0 pb-0 no-border">
+                                            <h3 class="heading heading-6 strong-600">
+                                                Basic information
+                                            </h3>
+                                            <p class="mt-1 mb-0">
+                                                You can help us, by filling your data, to give you a much better experience using our website.
+                                            </p>
+                                        </div>
+                                        <div class="card-body px-0">
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">First name</label>
+                                                        <input type="text" class="form-control form-control-lg" formControlName="fname" [value]="data.fname" id="first_name">
+                                                    </div>
+                                                </div>
+  
+                                                <div class="col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Last name</label>
+                                                        <input type="text" class="form-control form-control-lg" formControlName="lname" [value]="data.lname" id="last_name">
+                                                    </div>
+                                                </div>
+  
+                                                <div class="col-md-6 col-lg-9">
+                                                  <div class="form-group">
+                                                      <label class="control-label">User name</label>
+                                                      <input type="text" class="form-control form-control-lg" formControlName="username" [value]="data.username" readonly>
+                                                  </div>
+                                              </div>
+  
+                                                <div class="col-md-6 col-lg-4">
+                                                  <div class="form-group">
+                                                      <label class="control-label">Date Of Birth</label>
+                                                      <input type="date" class="form-control form-control-lg" [value]="this.data.dob | date: 'yyyy-MM-dd'" formControlName="dob" id="dob">
+                                                  </div>
+                                              </div>
+  
+                                              <div class="col-md-6 col-lg-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Gender</label><br>
+                                                      <input type="radio" id="male" formControlName="gender" value="Male" [checked]="data.gender=='Male'">
+                                                      <label for="male">Male</label><br>
+                                                      <input type="radio" id="female" formControlName="gender" value="Female" [checked]="data.gender=='Female'">
+                                                      <label for="female">Female</label><br>
+                                                      <input type="radio" id="other" formControlName="gender" value="Other" [checked]="data.gender=='Other'">
+                                                      <label for="other">Other</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4">
+                                              <div class="form-group">
+                                                  <label class="control-label">Weight</label>
+                                                  <input type="text" class="form-control form-control-lg" formControlName="weight" [value]="data.weight" id="Weight" placeholder="in kg's">
+                                              </div>
+                                          </div>
+  
+                                          <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Height</label>
+                                                <input type="text" class="form-control form-control-lg" formControlName="height" [value]="data.height" id="Height" placeholder="in cm's">
+                                            </div>
+                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                      <br>
+                                    <hr class="mt-0 mb-0">
+  
+                                    <!-- Account info -->
+                                    <div class="card no-border bg-transparent">
+                                        <div class="card-title px-0 pb-0 no-border">
+                                            <h3 class="heading heading-6 strong-600">
+                                                Account info
+                                            </h3>
+                                            <p class="mt-1 mb-0">
+                                                Edit your email and also, your newsletter subscriptions.
+                                            </p>
+                                        </div>
+                                        <div class="card-body px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Email</label>
+                                                        <input type="email" class="form-control form-control-lg" placeholder="name@example.com" formControlName="email" [value]="data.email" id="email">
+                                                    </div>
+                                                </div>
+  
+                                                <div class="col-md-6 col-lg-4">
+                                                  <div class="form-group">
+                                                      <label class="control-label">Email frequency</label>
+                                                      <select class="form-control form-control-lg" [value]="data.efreq" formControlName="efreq">
+                                                          <option value="Daily">Daily</option>
+                                                          <option value="Weekly">Weekly</option>
+                                                          <option value="Monthly">Monthly</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                            </div>
+  
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Contact</label>
+                                                        <input type="number" [value]="data.contact" class="form-control form-control-lg" placeholder="+91" formControlName="contact" id="Contact"pattern="[1-9]{1} [0-9]{9}" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr class="mt-0 mb-0">
+  
+                                    <!-- Change password -->
+                                    <div class="card no-border bg-transparent">
+                                        <div class="card-title px-0 pb-0 no-border">
+                                            <h3 class="heading heading-6 strong-600">
+                                                Change password
+                                            </h3>
+                                        </div>
+                                        <div class="card-body px-0">
+                                            <form class="form" [formGroup]="passForm" (ngSubmit)="changePass(passform)" #passform="ngForm">
+                                              <div class="row">
+                                                  <div class="col-md-6 col-lg-4">
+                                                      <div class="form-group">
+                                                          <label class="control-label">Current password</label>
+                                                          <input type="password" class="form-control form-control-lg" formControlName="password" id="password">
+                                                      </div>
+                                                  </div>
+  
+                                                  <div class="col-md-6 col-lg-4">
+                                                      <div class="form-group">
+                                                          <label class="control-label">New password</label>
+                                                          <input type="password" class="form-control form-control-lg" formControlName="newpassword" id="newpassword">
+                                                      </div>
+                                                  </div>
+  
+                                                  <div class="col-md-6 col-lg-4">
+                                                      <div class="form-group">
+                                                          <label class="control-label">Confirm password</label>
+                                                          <input type="password" class="form-control form-control-lg" formControlName="confirmpassword" id="Confirmpassword">
+                                                      </div>
+                                                  </div>
+                                              </div>
+  
+                                              <div class="text-right">
+                                                  <button type="submit" class="btn btn-md btn-primary">Change password</button>
+                                              </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                  
+                            </div>
+                        </div>
+                        <br>
+                        <hr class="mt-0 mb-0">
+  
+                        <!-- Addresses -->
+                        <div class="py-4">
+                            <h3 class="heading heading-6 strong-600">My address</h3>
+                        </div>
+  
+                         <div class="row cols-md-space cols-sm-space cols-xs-space">
+                            <div class="col-md-6 col-lg-8">
+                            <div class="form-group">
+                                <label class="control-label">Street Address</label>
+                                <textarea [value]="data.address" class="form-control form-control-lg form-control1" rows="4" cols="50" formControlName="address" id="street" placeholder="Street Name and landmark"></textarea>
+                            </div>
+                          </div>
+                           <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label">City</label>
+                                <input type="text" [value]="data.city" class="form-control form-control-lg" formControlName="city" id="City" placeholder="Ex:Hyderabad">
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label">State</label>
+                                <input type="text" [value]="data.state" class="form-control form-control-lg" formControlName="state" id="State" placeholder="Ex:Telangana">
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label">Country</label>
+                                <input type="text" [value]="data.country" class="form-control form-control-lg" formControlName="country" id="Country"placeholder="Ex:India">
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label">PinCode</label>
+                                <input type="number" [value]="data.pincode" class="form-control form-control-lg" formControlName="pincode" id="PinCode" placeholder="Ex:500090">
+                            </div>
+                          </div>
+                         </div>
+  
+                        </div>
+                          <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-md btn-dark" type="submit">Save</button>&nbsp;&nbsp;&nbsp;
+                                  <button class="btn btn-md btn-danger" type="reset">Reset</button>
+                            </div>
+                          </div>
+                  </form>
+             </div>
+            </div>
+        </div>
+      </div>
+    </div>
