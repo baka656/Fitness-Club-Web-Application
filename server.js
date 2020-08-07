@@ -3,14 +3,14 @@ const app=exp();
 const testRoute=require('./user-api');
 const mc=require('mongodb').MongoClient;
 const path=require('path');
-/*const cors = require('cors')
+const cors = require('cors')
 
-var corsOptions = {
+/*var corsOptions = {
   origin: 'http://localhost:4200',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}
+}*/
 
-app.use(cors(corsOptions));*/
+app.use(cors());
 
 app.use(exp.static(path.join(__dirname,'./dist/fitnessClub')));
 
