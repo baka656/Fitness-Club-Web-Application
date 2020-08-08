@@ -4,19 +4,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Clone the project 
 
-Clone the project into your desired location in your computer system using the command `git clone 
+Clone the project into your desired location in your computer system using the command `git clone https://github.com/baka656/Fitness-Club.git`
 
-## Development server
+## Install the packages
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install the packages of the project by going into the project in command prompt using command `cd Fitness-Club` and then the command `npm install`
 
-## Code scaffolding
+## Build the front end bundles
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Build the front end bundles using command `ng build --watch` which creates the dist folder which contains the javascript bundles in one command prompt
 
-## Build
+## Connect the back end to front end and host the application in localhost
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In another command prompt, run the command `nodemon server.js` and the application runs at `http://localhost:8080/`
 
 ## Running unit tests
 
